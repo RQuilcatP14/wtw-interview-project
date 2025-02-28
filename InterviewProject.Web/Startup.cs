@@ -1,7 +1,6 @@
-using System.IO;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +22,20 @@ namespace InterviewProject
         {
 
             services.AddControllersWithViews();
+
+            // Register Swagger
+            services.AddEndpointsApiExplorer();
+
+            // Register HttpClient with configuration from appsettings.json
+            services.AddHttpClient<IWeatherForecastService, WeatherForecastService>((serviceProvider, client) =>
+            {
+                var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+                var baseUrl = configuration["WeatherApi:BaseUrl"];
+                client.BaseAddress = new Uri(baseUrl);
+            });
+
+            // Register WeatherForecastService
+            services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
