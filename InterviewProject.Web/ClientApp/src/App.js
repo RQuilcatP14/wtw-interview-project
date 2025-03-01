@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { Weather } from './components/Weather';
-import { Counter } from './components/Counter';
+import React from "react";
+import Weather from "./components/Weather/Weather";
+import Navbar from "./components/NavBar/NavBar";
 
-import './custom.css'
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <Weather />
+    </div>
+  );
+};
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render () {
-    return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/weather' component={Weather} />
-      </Layout>
-    );
-  }
-}
+export default App;
