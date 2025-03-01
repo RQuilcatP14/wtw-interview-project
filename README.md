@@ -113,4 +113,6 @@ wtw-interview-project
 - We can also replace javascript with typescript, CSS bootstrap with tailwind css, add data fetching with axios and unit testing with jest, as well as storybook for the input components, in turn use Material UI or Radix for a better user interface.
 
 <hr />
+![image](https://github.com/user-attachments/assets/5c7c4fb2-567c-438c-bea1-44e8708a5169)
+
 Solution Developed by: <b>Rodrigo Miguel Quilcat Pesantes</b> Initialized on February 28, 2025 at 17:30 and ended at 20:30 PM (GMT-5)
